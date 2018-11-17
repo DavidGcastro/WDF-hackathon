@@ -10,10 +10,6 @@ export default class App extends React.Component {
     }
   }
 
-  handleChange = (itemValue) => {
-    console.log(itemValue)
-    this.setState({fromLanguage: itemValue})
-  }
 
   render() {
     return (
