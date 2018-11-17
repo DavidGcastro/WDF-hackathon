@@ -53,5 +53,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 50,
     top: 80
+  },
+  buttonActive: {
+    backgroundColor: '#FF0505',
+    height: 75,
+    width: 75,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    top: 80
   }
 });
