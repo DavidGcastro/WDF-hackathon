@@ -7,9 +7,12 @@ export default class App extends React.Component {
     super(props)
     this.state = {
       fromLanguage: '',
-      translationLanguage: ''
+      translationLanguage: '',
+      isActive: false
     }
   }
+
+ 
 
 
   render() {
