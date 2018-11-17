@@ -14,7 +14,6 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
         <Picker style={{ height: 50, width: 300, bottom: 200 }} selectedValue={this.state.fromLanguage} onValueChange={(itemValue) =>  this.setState({fromLanguage: itemValue})}>
           <Picker.Item label="Choose Speaker's Langauge" value="" />
           <Picker.Item label="English" value="English" />
