@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Picker } from 'react-native';
+import { StyleSheet, Text, View, Picker, Button } from 'react-native';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -24,6 +24,11 @@ export default class App extends React.Component {
           <Picker.Item label="Spanish" value="Spanish" />
           <Picker.Item label="English" value="English" />
         </Picker>
+        <Button
+          title="Translate"
+          color="#841584"
+          accessibilityLabel="Record speech to translate"
+        />
       </View>
     );
   }
