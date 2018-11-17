@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Picker, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Picker, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 export default class App extends React.Component {
@@ -25,12 +25,9 @@ export default class App extends React.Component {
           <Picker.Item label="Spanish" value="Spanish" />
           <Picker.Item label="English" value="English" />
         </Picker>
-        <Button
-          title="Translate"
-          color="#841584"
-          accessibilityLabel="Record speech to translate"
-        />
-        <TouchableOpacity><FontAwesome name="microphone" size={32} /></TouchableOpacity>
+        <TouchableOpacity>
+          <FontAwesome name="microphone" size={32} />
+        </TouchableOpacity>
         
       </View>
     );
