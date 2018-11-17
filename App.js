@@ -8,6 +8,11 @@ export default class App extends React.Component {
       fromLanguage: ''
     }
   }
+
+  handleChange = (itemValue) => {
+    this.setState({fromLanguage: itemValue})
+  }
+
   render() {
     return (
       <View style={styles.container}>
