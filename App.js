@@ -33,7 +33,6 @@ export default class App extends React.Component {
         <TouchableOpacity style={isActive ? styles.buttonActive : styles.button} onPress={this.handlePress}>
           <FontAwesome name="microphone" size={32} color={isActive ? "black" : "white"}/>
         </TouchableOpacity>
-        
       </View>
     );
   }
@@ -45,6 +44,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 10
   },
   button: {
     backgroundColor: '#00D86C',
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
-    top: 80
+    top: 100
   },
   buttonActive: {
     backgroundColor: '#FF0505',
@@ -62,6 +62,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
-    top: 80
+    top: 100
   }
 });
