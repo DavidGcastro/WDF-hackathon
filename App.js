@@ -22,6 +22,11 @@ export default class App extends React.Component {
           <Picker.Item label="English" value="English" />
           <Picker.Item label="Spanish" value="Spanish" />
         </Picker>
+        <Picker style={{ height: 50, width: 300 }} selectedValue={this.state.fromLanguage} onValueChange={this.handleChange}>
+          <Picker.Item label="Choose Translation Langauge" value="" />
+          <Picker.Item label="Spanish" value="Spanish" />
+          <Picker.Item label="English" value="English" />
+        </Picker>
       </View>
     );
   }
