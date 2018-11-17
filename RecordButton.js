@@ -33,7 +33,7 @@ export default class RecordButton extends React.Component {
         interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
         playThroughEarpieceAndroid: true
       });
-      await recording.prepareToRecordAsync(Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY)
+      await recording.prepareToRecordAsync(configure)
       await recording.startAsync()
     } catch (error) {
       console.log(error)
@@ -71,12 +71,25 @@ const styles = StyleSheet.create({
     }
 })
 
-// const ios = {
-//     extension: '.caf',
-//     outputFormat: Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_LINEARPCM,
-//     audioQuality: Audio.RECORDING_OPTION_IOS_AUDIO_QUALITY_MAX,
-//     bitRate: 128000,
-//     sampleRate: 44100,
-//     numberOfChannels: 1,
+const ios = {
+    extension: '.wav',
+    outputFormat: Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_LINEARPCM,
+    audioQuality: Audio.RECORDING_OPTION_IOS_AUDIO_QUALITY_MAX,
+    bitRate: 128000,
+    sampleRate: 16000,
+    numberOfChannels: 1
+}
 
-// }
+const android = {
+    extension: '.m4a',
+    outputFormat: Audio.RECORDING_OPTION_ANDROID_OUTPUT_FORMAT_MPEG_4,
+    audioEncoder: Audio.RECORDING_OPTION_ANDROID_AUDIO_ENCODER_AAC,
+    sampleRate: 44100,
+    numberOfChannels: 2,
+    bitRate: 128000,
+}
+
+const configure = {
+    android,
+    ios
+}
