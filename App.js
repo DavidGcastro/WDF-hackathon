@@ -25,7 +25,7 @@ export default class App extends React.Component {
           <Picker.Item label="English" value="English" />
           <Picker.Item label="Spanish" value="Spanish" />
         </Picker>
-        <Picker style={{ height: 50, width: 300, bottom: 100 }} selectedValue={translationLanguage} onValueChange={(itemValue) =>  this.setState({translationLanguage: itemValue})}>
+        <Picker style={{ height: 50, width: 300, bottom: 80 }} selectedValue={translationLanguage} onValueChange={(itemValue) =>  this.setState({translationLanguage: itemValue})}>
           <Picker.Item label="Choose Translation Langauge" value="" />
           <Picker.Item label="Spanish" value="Spanish" />
           <Picker.Item label="English" value="English" />
