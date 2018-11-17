@@ -25,8 +25,8 @@ export default class App extends React.Component {
           <Picker.Item label="Spanish" value="Spanish" />
           <Picker.Item label="English" value="English" />
         </Picker>
-        <TouchableOpacity>
-          <FontAwesome name="microphone" size={32} />
+        <TouchableOpacity style={styles.button}>
+          <FontAwesome name="microphone" size={32} color="white"/>
         </TouchableOpacity>
         
       </View>
@@ -41,4 +41,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  button: {
+    backgroundColor: '#00D86C',
+    height: 75,
+    width: 75,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    top: 80
+  }
 });
