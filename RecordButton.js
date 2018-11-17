@@ -1,6 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import {Audio, Permissions, FileSystem} from 'expo'
+import someStr from './fileAsString'
 
 
 export default class RecordButton extends React.Component {
@@ -44,6 +46,8 @@ export default class RecordButton extends React.Component {
       const recordingURI = recording.getURI()
       const recordingAsString = await FileSystem.readAsStringAsync(recordingURI, {encoding: FileSystem.EncodingTypes.Base64})
       console.log(recordingAsString) // TODO REMOVE
+      const res = await axios.post('http://172.16.25.118:3000/', {language: 'en-US', recordingAsString })
+      console.log('WHAT ARE YOU?>>>', res.data) // TODO REMOVE
       this.setState({recording: new Audio.Recording(), message: recordingURI})
     } catch (error) {
       console.log(error)
@@ -66,3 +70,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     }
 })
+
+// const ios = {
+//     extension: '.caf',
+//     outputFormat: Audio.RECORDING_OPTION_IOS_OUTPUT_FORMAT_LINEARPCM,
+//     audioQuality: Audio.RECORDING_OPTION_IOS_AUDIO_QUALITY_MAX,
+//     bitRate: 128000,
+//     sampleRate: 44100,
+//     numberOfChannels: 1,
+
+// }
