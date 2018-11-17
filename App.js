@@ -60,14 +60,14 @@ export default class App extends React.Component {
         language: fromLanguage,
         recordingAsString
       });
-      await Audio.setAudioModeAsync({
-        allowsRecordingIOS: false,
-        interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS,
-        playsInSilentModeIOS: true,
-        shouldDuckAndroid: true,
-        interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
-        playThroughEarpieceAndroid: false
-      });
+      // await Audio.setAudioModeAsync({
+      //   allowsRecordingIOS: false,
+      //   interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS,
+      //   playsInSilentModeIOS: true,
+      //   shouldDuckAndroid: true,
+      //   interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+      //   playThroughEarpieceAndroid: false
+      // });
       Speech.speak(res.data[0], { language: 'es-US' });
       await this.setState({ recording: new Audio.Recording() });
     } catch (error) {
