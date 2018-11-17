@@ -13,6 +13,7 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <Text>Open up App.js to start working on your app!</Text>
         <Picker style={{ height: 50, width: 100 }}>
+          <Picker.Item label="Choose Speakers Langauge" value="" />
           <Picker.Item label="English" value="English" />
           <Picker.Item label="Spanish" value="Spanish" />
         </Picker>
