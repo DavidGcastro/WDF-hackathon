@@ -2,6 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View, Picker } from 'react-native';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      fromLanguage: ''
+    }
+  }
   render() {
     return (
       <View style={styles.container}>
