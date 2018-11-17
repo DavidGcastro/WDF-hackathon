@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.post('/', (req, res, next) => {
   const request = {
     config: {
-      encoding: 'FLAC',
+      encoding: 'LINEAR16',
       sampleRateHertz: 16000,
       languageCode: req.body.language,
       model: 'default'
@@ -21,8 +21,8 @@ app.post('/', (req, res, next) => {
   client
     .recognize(request)
     .then(data => {
-      console.log(data);
-      res.send(data);
+      let results = data[0].results[0];
+      res.send(results);
     })
     .catch(err => {
       console.error('ERROR:', err);
