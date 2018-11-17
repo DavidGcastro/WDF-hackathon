@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Picker, Button } from 'react-native';
+import { StyleSheet, Text, View, Picker, Button, TouchableOpacity } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -29,6 +30,8 @@ export default class App extends React.Component {
           color="#841584"
           accessibilityLabel="Record speech to translate"
         />
+        <TouchableOpacity><FontAwesome name="microphone" size={32} /></TouchableOpacity>
+        
       </View>
     );
   }
