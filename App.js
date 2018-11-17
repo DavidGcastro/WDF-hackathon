@@ -12,8 +12,9 @@ export default class App extends React.Component {
     }
   }
 
- 
-
+  handlePress = async (evt) => {
+    await this.setState({isActive: !this.state.isActive})
+  }
 
   render() {
     return (
