@@ -30,8 +30,8 @@ export default class App extends React.Component {
           <Picker.Item label="Spanish" value="Spanish" />
           <Picker.Item label="English" value="English" />
         </Picker>
-        <TouchableOpacity style={styles.button} onPress={this.handlePress}>
-          <FontAwesome name="microphone" size={32} color="white"/>
+        <TouchableOpacity style={isActive ? styles.buttonActive : styles.button} onPress={this.handlePress}>
+          <FontAwesome name="microphone" size={32} color={isActive ? "black" : "white"}/>
         </TouchableOpacity>
         
       </View>
