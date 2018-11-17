@@ -5,11 +5,13 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      fromLanguage: ''
+      fromLanguage: '',
+      translationLanguage: ''
     }
   }
 
   handleChange = (itemValue) => {
+    console.log(itemValue)
     this.setState({fromLanguage: itemValue})
   }
 
