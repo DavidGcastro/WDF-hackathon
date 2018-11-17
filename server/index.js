@@ -8,13 +8,16 @@ const request = {
   audio: config.audio
 };
 
+app.post('/', (req, res, next) => {
+    console.log(req.body, 555555);
+    res.send('HIT');
+});
+
 app.listen(3000, function() {
   console.log('Listening on 3000');
 });
 
-app.post('/', (req, res, next) => {
-  console.log(req.body);
-});
+
 
 client
   .recognize(request)
