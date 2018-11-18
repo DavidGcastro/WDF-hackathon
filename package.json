@@ -6,11 +6,16 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "start-server": "export GOOGLE_APPLICATION_CREDENTIALS='./server/secrets/creds.json' & nodemon server/index.js"
   },
   "dependencies": {
+    "@google-cloud/speech": "^2.1.1",
+    "@google-cloud/translate": "^2.1.2",
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "expo": "^31.0.2",
+    "express": "^4.16.4",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz"
   },
