@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.post('/', (req, res, next) => {
   let words;
   let alt;
+  //Config for google speech
   const request = {
     config: {
       encoding: 'LINEAR16',
@@ -46,6 +47,7 @@ app.post('/', (req, res, next) => {
     })
     .then(text => {
       let textToSend = text.words ? text.words : text.alt;
+      //Make Dynamic.
       translate
         .translate(textToSend, 'es')
         .then(results => {
@@ -64,6 +66,7 @@ app.post('/', (req, res, next) => {
     });
 });
 
+//Add error handling middleware.
 app.listen(3000, function() {
   console.log('Listening on 3000');
 });
