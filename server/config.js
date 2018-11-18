@@ -1,7 +1,7 @@
 const config = {
-  apiKey: 'AIzaSyCQPWtt4L-I4xd1VWpdqqYSwDT18FBK69A',
+  apiKey: '',
   baseUrl: 'https://speech.googleapis.com/v1/speech:recognize',
-  projectid: 'wdfhackathon'
+  projectid: ''
 };
 
 module.exports = config;
