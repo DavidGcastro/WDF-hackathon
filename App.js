@@ -3,7 +3,6 @@ import { StyleSheet, View, Picker, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { Audio, Permissions, FileSystem, Speech } from 'expo';
 import axios from 'axios';
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -55,19 +54,11 @@ export default class App extends React.Component {
         recordingURI,
         { encoding: FileSystem.EncodingTypes.Base64 }
       );
-      console.log(recordingAsString); // TODO REMOVE
-      const res = await axios.post('http://localhost:3000/', {
+      const res = await axios.post('http://192.168.1.228:3000/', {
         language: fromLanguage,
         recordingAsString
       });
-      // await Audio.setAudioModeAsync({
-      //   allowsRecordingIOS: false,
-      //   interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS,
-      //   playsInSilentModeIOS: true,
-      //   shouldDuckAndroid: true,
-      //   interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
-      //   playThroughEarpieceAndroid: false
-      // });
+
       Speech.speak(res.data[0], { language: 'es-US' });
       await this.setState({ recording: new Audio.Recording() });
     } catch (error) {
