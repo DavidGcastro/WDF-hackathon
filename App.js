@@ -56,7 +56,7 @@ export default class App extends React.Component {
         { encoding: FileSystem.EncodingTypes.Base64 }
       );
       console.log(recordingAsString); // TODO REMOVE
-      const res = await axios.post('http://172.16.25.118:3000/', {
+      const res = await axios.post('http://localhost:3000/', {
         language: fromLanguage,
         recordingAsString
       });
@@ -81,31 +81,28 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Picker
-          style={{ height: 50, width: 300, bottom: 200 }}
+          style={{ width: '100%', flex: 1 }}
           selectedValue={fromLanguage}
           onValueChange={itemValue =>
             this.setState({ fromLanguage: itemValue })
-          }
-        >
+          }>
           <Picker.Item label="Choose Speaker's Langauge" value="en-US" />
           <Picker.Item label="English" value="en-US" />
           <Picker.Item label="Spanish" value="es-US" />
         </Picker>
         <Picker
-          style={{ height: 50, width: 300, bottom: 80 }}
+          style={{ width: '100%', flex: 1 }}
           selectedValue={translationLanguage}
           onValueChange={itemValue =>
             this.setState({ translationLanguage: itemValue })
-          }
-        >
+          }>
           <Picker.Item label="Choose Translation Langauge" value="" />
           <Picker.Item label="Spanish" value="es-US" />
           <Picker.Item label="English" value="en-US" />
         </Picker>
         <TouchableOpacity
           style={isActive ? styles.buttonActive : styles.button}
-          onPress={this.handlePress}
-        >
+          onPress={this.handlePress}>
           <FontAwesome
             name="microphone"
             size={32}
@@ -122,8 +119,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 10
+    justifyContent: 'space-evenly',
+    padding: 50
   },
   button: {
     backgroundColor: '#00D86C',
@@ -131,8 +128,7 @@ const styles = StyleSheet.create({
     width: 75,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 50,
-    top: 100
+    borderRadius: 50
   },
   buttonActive: {
     backgroundColor: '#FF0505',
@@ -140,8 +136,7 @@ const styles = StyleSheet.create({
     width: 75,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 50,
-    top: 100
+    borderRadius: 50
   }
 });
 

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const speech = require('@google-cloud/speech');
 const { Translate } = require('@google-cloud/translate');
-const config = require('./config');
+const config = require('./secrets/config');
 const bodyParser = require('body-parser');
 const client = new speech.SpeechClient();
 
