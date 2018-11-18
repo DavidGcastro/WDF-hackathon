@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Picker, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Picker, TouchableOpacity, Text } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { Audio, Permissions, FileSystem, Speech } from 'expo';
 import axios from 'axios';
@@ -71,26 +71,41 @@ export default class App extends React.Component {
     const { fromLanguage, translationLanguage, isActive } = this.state;
     return (
       <View style={styles.container}>
-        <Picker
-          style={{ width: '100%', flex: 1 }}
-          selectedValue={fromLanguage}
-          onValueChange={itemValue =>
-            this.setState({ fromLanguage: itemValue })
-          }>
-          <Picker.Item label="Choose Speaker's Langauge" value="en-US" />
-          <Picker.Item label="English" value="en-US" />
-          <Picker.Item label="Spanish" value="es-US" />
-        </Picker>
-        <Picker
-          style={{ width: '100%', flex: 1 }}
-          selectedValue={translationLanguage}
-          onValueChange={itemValue =>
-            this.setState({ translationLanguage: itemValue })
-          }>
-          <Picker.Item label="Choose Translation Langauge" value="" />
-          <Picker.Item label="Spanish" value="es-US" />
-          <Picker.Item label="English" value="en-US" />
-        </Picker>
+        <View
+          style={{
+            width: '100%',
+            flex: 1,
+            justifyContent: 'center',
+            alignContent: 'center'
+          }}>
+          <Text style={{ textAlign: 'center', fontSize: 30 }}>Speaker one</Text>
+          <Picker
+            selectedValue={fromLanguage}
+            onValueChange={itemValue =>
+              this.setState({ fromLanguage: itemValue })
+            }>
+            <Picker.Item label="English" value="en-US" />
+            <Picker.Item label="Spanish" value="es-US" />
+          </Picker>
+        </View>
+        <View
+          style={{
+            width: '100%',
+            flex: 1,
+            justifyContent: 'center',
+            alignContent: 'center'
+          }}>
+          <Text style={{ textAlign: 'center', fontSize: 30 }}>Speaker Two</Text>
+          <Picker
+            selectedValue={fromLanguage}
+            onValueChange={itemValue =>
+              this.setState({ fromLanguage: itemValue })
+            }>
+            <Picker.Item label="English" value="en-US" />
+            <Picker.Item label="Spanish" value="es-US" />
+            <Picker.Item label="Russian" value="es-US" />
+          </Picker>
+        </View>
         <TouchableOpacity
           style={isActive ? styles.buttonActive : styles.button}
           onPress={this.handlePress}>
@@ -110,8 +125,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
-    padding: 50
+    justifyContent: 'space-around',
+    padding: 30
   },
   button: {
     backgroundColor: '#00D86C',

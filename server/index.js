@@ -13,7 +13,6 @@ app.use(bodyParser.json({ limit: '10mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
 app.post('/', (req, res, next) => {
-  console.log("HOTTTT")
   let words;
   let alt;
   //Config for google speech
@@ -44,7 +43,7 @@ app.post('/', (req, res, next) => {
         alt = results[1].alternatives[0].transcript;
       }
       let final = { words, alt };
-      console.log(final)
+      console.log(final);
       return final;
     })
     .then(text => {
@@ -54,7 +53,7 @@ app.post('/', (req, res, next) => {
         .translate(textToSend, 'es')
         .then(results => {
           const translation = results[0];
-          console.log(`Text: ${text}`);
+          console.log(`Text: ${text[0]}`);
           console.log(`Translation: ${translation}`);
           res.send(results);
         })
