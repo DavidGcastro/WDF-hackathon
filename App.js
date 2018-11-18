@@ -1,9 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Picker, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Picker, TouchableOpacity, Text } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { Audio, Permissions, FileSystem, Speech } from 'expo';
 import axios from 'axios';
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -55,19 +54,11 @@ export default class App extends React.Component {
         recordingURI,
         { encoding: FileSystem.EncodingTypes.Base64 }
       );
-      console.log(recordingAsString); // TODO REMOVE
-      const res = await axios.post('http://172.16.25.118:3000/', {
+      const res = await axios.post('http://192.168.1.228:3000/', {
         language: fromLanguage,
         recordingAsString
       });
-      // await Audio.setAudioModeAsync({
-      //   allowsRecordingIOS: false,
-      //   interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS,
-      //   playsInSilentModeIOS: true,
-      //   shouldDuckAndroid: true,
-      //   interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
-      //   playThroughEarpieceAndroid: false
-      // });
+
       Speech.speak(res.data[0], { language: 'es-US' });
       await this.setState({ recording: new Audio.Recording() });
     } catch (error) {
@@ -80,32 +71,44 @@ export default class App extends React.Component {
     const { fromLanguage, translationLanguage, isActive } = this.state;
     return (
       <View style={styles.container}>
-        <Picker
-          style={{ height: 50, width: 300, bottom: 200 }}
-          selectedValue={fromLanguage}
-          onValueChange={itemValue =>
-            this.setState({ fromLanguage: itemValue })
-          }
-        >
-          <Picker.Item label="Choose Speaker's Langauge" value="en-US" />
-          <Picker.Item label="English" value="en-US" />
-          <Picker.Item label="Spanish" value="es-US" />
-        </Picker>
-        <Picker
-          style={{ height: 50, width: 300, bottom: 80 }}
-          selectedValue={translationLanguage}
-          onValueChange={itemValue =>
-            this.setState({ translationLanguage: itemValue })
-          }
-        >
-          <Picker.Item label="Choose Translation Langauge" value="" />
-          <Picker.Item label="Spanish" value="es-US" />
-          <Picker.Item label="English" value="en-US" />
-        </Picker>
+        <View
+          style={{
+            width: '100%',
+            flex: 1,
+            justifyContent: 'center',
+            alignContent: 'center'
+          }}>
+          <Text style={{ textAlign: 'center', fontSize: 30 }}>Speaker one</Text>
+          <Picker
+            selectedValue={fromLanguage}
+            onValueChange={itemValue =>
+              this.setState({ fromLanguage: itemValue })
+            }>
+            <Picker.Item label="English" value="en-US" />
+            <Picker.Item label="Spanish" value="es-US" />
+          </Picker>
+        </View>
+        <View
+          style={{
+            width: '100%',
+            flex: 1,
+            justifyContent: 'center',
+            alignContent: 'center'
+          }}>
+          <Text style={{ textAlign: 'center', fontSize: 30 }}>Speaker Two</Text>
+          <Picker
+            selectedValue={fromLanguage}
+            onValueChange={itemValue =>
+              this.setState({ fromLanguage: itemValue })
+            }>
+            <Picker.Item label="English" value="en-US" />
+            <Picker.Item label="Spanish" value="es-US" />
+            <Picker.Item label="Russian" value="es-US" />
+          </Picker>
+        </View>
         <TouchableOpacity
           style={isActive ? styles.buttonActive : styles.button}
-          onPress={this.handlePress}
-        >
+          onPress={this.handlePress}>
           <FontAwesome
             name="microphone"
             size={32}
@@ -122,8 +125,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 10
+    justifyContent: 'space-around',
+    padding: 30
   },
   button: {
     backgroundColor: '#00D86C',
@@ -131,8 +134,7 @@ const styles = StyleSheet.create({
     width: 75,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 50,
-    top: 100
+    borderRadius: 50
   },
   buttonActive: {
     backgroundColor: '#FF0505',
@@ -140,8 +142,7 @@ const styles = StyleSheet.create({
     width: 75,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 50,
-    top: 100
+    borderRadius: 50
   }
 });
 

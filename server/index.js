@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const speech = require('@google-cloud/speech');
 const { Translate } = require('@google-cloud/translate');
-const config = require('./config');
+const config = require('./secrets/config');
 const bodyParser = require('body-parser');
 const client = new speech.SpeechClient();
 
@@ -43,6 +43,7 @@ app.post('/', (req, res, next) => {
         alt = results[1].alternatives[0].transcript;
       }
       let final = { words, alt };
+      console.log(final);
       return final;
     })
     .then(text => {
@@ -52,7 +53,7 @@ app.post('/', (req, res, next) => {
         .translate(textToSend, 'es')
         .then(results => {
           const translation = results[0];
-          console.log(`Text: ${text}`);
+          console.log(`Text: ${text[0]}`);
           console.log(`Translation: ${translation}`);
           res.send(results);
         })
